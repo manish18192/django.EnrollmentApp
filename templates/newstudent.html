@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <form action="newstudent" method="post" xmlns="http://www.w3.org/1999/html">
+        {% csrf_token %}
+        <input type="text" name="student_name" placeholder="Student Name"><br>
+        <input type="text" name="father_name" placeholder="Father Name"><br>
+        <label for="date of birth">Date of Birth:</label>
+        <input type="date"  name="dob"><br>
+        <input type="text" name="address" placeholder="Address"><br>
+        <input type="text" name="city" placeholder="City"><br>
+        <input type="text" name="state" placeholder="State"><br>
+        <input type="number" name="pin" placeholder="Pin Code"><br>
+        <input type="number" name="mobile" placeholder="Mobile No."><br>
+        <input type="email" name="email" placeholder="Email"><br>
+        <label for="class_opted">Class Opted:</label>
+        <select id="class" name="class">
+            <option value="5">Five</option>
+            <option value="6">Six</option>
+            <option value="7">Seven</option>
+            <option value="8">Eight</option>
+            <option value="9">Nine</option>
+            <option value="10">Ten</option>
+        </select> </br>
+        <input type="number" name="marks" placeholder="Marks in Percentage"><br>
+<!--        <input type="text" name="date_enrolled" placeholder="Date Enrollrd"><br>  -->
+        <input type="submit">
+    </form>
+
+    <div>
+        {% for message in messages %}
+
+            <h4>{{ message }}</h4>
+
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
